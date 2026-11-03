@@ -12,47 +12,35 @@ submission/
 └── requirements.txt
 ```
 
-## Menjalankan Dashboard
-
-Perintah berikut dijalankan dari folder utama proyek (folder yang berisi `requirements.txt`).
-
-### 1. Membuat lingkungan virtual
+## Setup Environment - Anaconda
 
 ```
-python -m venv venv
-```
-
-### 2. Mengaktifkan lingkungan virtual
-
-Windows (PowerShell):
-
-```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-venv\Scripts\activate
-```
-
-macOS atau Linux:
-
-```
-source venv/bin/activate
-```
-
-### 3. Memasang library yang dibutuhkan
-
-```
+conda create --name main-ds python=3.9
+conda activate main-ds
 pip install -r requirements.txt
 ```
 
-### 4. Menjalankan dashboard
+## Setup Environment - Shell/Terminal
+
+```
+cd path/ke/folder-submission
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Untuk macOS atau Linux, ganti perintah aktivasi dengan `source venv/bin/activate`.
+
+Jika PowerShell menolak menjalankan script aktivasi, jalankan perintah ini terlebih dahulu:
+
+```
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+## Run Streamlit App
 
 ```
 streamlit run dashboard/dashboard.py
 ```
 
-Dashboard akan terbuka di browser pada alamat `http://localhost:8501`. Untuk menghentikannya, tekan `Ctrl+C` pada terminal.
-
-## Menjalankan Notebook
-
-1. Pastikan 12 berkas `PRSA_Data_*.csv` berada di folder `data/`.
-2. Buka `notebook.ipynb` melalui Jupyter Notebook atau Google Colab. Pada Google Colab, unggah folder `data/` terlebih dahulu.
-3. Jalankan seluruh sel secara berurutan. Berkas `dashboard/main_data.csv` akan dibuat ulang pada bagian akhir bagian Cleaning Data.
+Dashboard akan terbuka di `http://localhost:8501`.
